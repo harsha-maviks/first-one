@@ -1,0 +1,10 @@
+class OrderedList:
+
+    def __init__(self):
+        self.items = []
+
+    def add(self, value):
+        self.items.append(value)
+
+    def get(self, index):
+        return self.items[index]
