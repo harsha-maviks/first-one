@@ -1,8 +1,8 @@
-from ordered_list import OrderedList
+from sequence import CustomSequence  # ✅ Correct import
 
 def test_support_multiple_datatypes():
     """Requirement 1 Test"""
-    collection = OrderedList()
+    collection = CustomSequence()
 
     collection.add(10)
     collection.add("hello")
@@ -16,7 +16,7 @@ def test_support_multiple_datatypes():
 
 def test_append_and_prepend():
     """Requirement 2 Test: Front & Back Insertion"""
-    collection = OrderedList()
+    collection = CustomSequence()
 
     # Back insertion using add and append
     collection.add(10)           # List: [10]

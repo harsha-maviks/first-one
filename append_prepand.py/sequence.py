@@ -1,23 +1,25 @@
-class OrderedList:
+class CustomSequence:
     def __init__(self):
-        self.items = []
+        self._items = []
 
-    def add(self, value):
-        """Appends an element to the back of the list."""
-        self.items.append(value)
-
-    def append(self, value):
-        """Appends an element to the end (back insertion)."""
-        self.items.append(value)
-
-    def prepend(self, value):
-        """Inserts an element at the beginning (front insertion)."""
-        self.items.insert(0, value)
+    def add(self, item):
+        """Adds an item to the sequence, allowing duplicates."""
+        self._items.append(item)
 
     def get(self, index):
-        """Retrieves an element by its 0-based index."""
-        return self.items[index]
+        """Retrieves the item at the specified 0-based index."""
+        return self._items[index]
+
+    def count(self, item):
+        """Returns the total number of occurrences of the given item."""
+        return self._items.count(item)
 
     def __len__(self):
-        """Returns total number of items in the collection."""
-        return len(self.items)
+        """Enables len(seq) syntax to return the total count of items."""
+        return len(self._items)
+    def append(self, item):
+        """Appends an item to the end (back insertion)."""
+        self._items.append(item)
+    def prepend(self, item):
+        """Inserts an item at the beginning (front insertion)."""
+        self._items.insert(0, item)
