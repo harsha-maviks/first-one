@@ -1,29 +1,21 @@
-from sequence import CustomSequence
+from ordered_list import OrderedList
 
-def test_allow_duplicates():
-    seq = CustomSequence()
+def test_append_and_prepend():
+    collection = OrderedList()
 
-    # Add duplicate integers and strings
-    seq.add(10)
-    seq.add("apple")
-    seq.add(10)        # Duplicate integer
-    seq.add("apple")    # Duplicate string
-    seq.add(10)        # Third duplicate integer
+    # Append to the back
+    collection.add(10)
+    collection.append("world")  # [10, "world"]
 
-    # Verify total length reflects all duplicates
-    assert len(seq) == 5
+    # Prepend to the front
+    collection.prepend("hello") # ["hello", 10, "world"]
 
-    # Verify items exist at separate indices
-    assert seq.get(0) == 10
-    assert seq.get(2) == 10
-    assert seq.get(4) == 10
-    assert seq.get(1) == "apple"
-    assert seq.get(3) == "apple"
-
-    # Verify duplicate count helper
-    assert seq.count(10) == 3
-    assert seq.count("apple") == 2
+    # Verify positions after insertions
+    assert collection.get(0) == "hello"
+    assert collection.get(1) == 10
+    assert collection.get(2) == "world"
+    assert len(collection) == 3
 
 if __name__ == "__main__":
-    test_allow_duplicates()
-    print("Requirement 2 (Allow Duplicates) passed successfully!")
+    test_append_and_prepend()
+    print("Requirement 2 (Append & Prepend Elements) passed successfully!")

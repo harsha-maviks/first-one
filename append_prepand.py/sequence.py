@@ -1,26 +1,23 @@
-class CustomSequence:
-    """
-    Mutable, ordered sequence collection supporting mixed data types and duplicates.
-    """
+class OrderedList:
     def __init__(self):
-        self._items = []
+        self.items = []
 
-    def add(self, item):
-        """
-        [Requirement 1 & 2]: Append an item of any type to the collection.
-        Duplicate values are explicitly permitted and stored at new indices.
-        """
-        self._items.append(item)
+    def add(self, value):
+        """Appends an element to the end (back insertion)."""
+        self.items.append(value)
 
-    def get(self, index: int):
-        """Retrieve element by index."""
-        if index < 0 or index >= len(self._items):
-            raise IndexError("Index out of bounds")
-        return self._items[index]
+    def prepend(self, value):
+        """Inserts an element at the beginning (front insertion)."""
+        self.items.insert(0, value)
 
-    def count(self, value) -> int:
-        """Return the number of times a specific value appears in the collection."""
-        return self._items.count(value)
+    def append(self, value):
+        """Alias for add(); appends an element to the end."""
+        self.items.append(value)
 
-    def __len__(self) -> int:
-        return len(self._items)
+    def get(self, index):
+        """Retrieves an element by its 0-based index."""
+        return self.items[index]
+
+    def __len__(self):
+        """Returns the total number of elements in the list."""
+        return len(self.items)
